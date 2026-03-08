@@ -1,2 +1,10 @@
-# ARIMA-NAR-ZAMAN-SER-S-
-Küresel Sıcaklık Arima ve Nar
+# ARIMA-NAR-ZAMAN-SERISI
+
+Küresel Sıcaklık Anomalisi Tahmini: ARIMA ve NAR Modelleri
+Bu proje, yıllık küresel sıcaklık anomalilerinin zaman serisi verisi üzerinde iki farklı tahmin yaklaşımını karşılaştırmaktadır: klasik lineer zaman serisi modeli ARIMA ve non‑linear sinir ağı tabanlı NAR (Neural Autoregressive) modeli. Amaç, geçmiş veriyi doğru şekilde modellemek ve ileriye dönük tahminler yapmaktır.
+
+ARIMA Modeli: Otomatik AIC minimizasyonu ile en uygun model ARIMA(3,1,0) olarak seçilmiştir. Modelin AR (otomatik regresyon) katsayıları istatistiksel olarak anlamlıdır ve artıklarında oto‑korelasyon gözlenmemektedir (Ljung‑Box p = 0.88). Ayrıca artıkların dağılımı yaklaşık normaldir (Jarque‑Bera p = 0.51) ve varyans sabittir (heteroskedasticity testi p = 0.36). Bu bulgular, ARIMA modelinin geçmiş veriyi iyi açıkladığını ve model varsayımlarının sağlandığını göstermektedir. 2025–2029 yılları için tahminler, sıcaklık anomalisinin artış eğilimini sürdürdüğünü ve 1.5°C kritik sınırına yaklaşmakta olduğunu ortaya koymaktadır. Örneğin 2025 tahmini 1.042°C, 2029 tahmini ise 1.065°C civarındadır.
+
+NAR Modeli: NAR modeli, geçmiş değerlerin non‑linear ilişkilerini öğrenen bir çok katmanlı sinir ağıdır. Veri %80 eğitim, %20 test olarak bölünmüş, ölçeklendirilmiş ve 10 yıllık gecikme (lag=10) kullanılarak eğitilmiştir. Eğitim setinde MAE ≈ 0.120, RMSE ≈ 0.145 ve R² ≈ 0.564; test setinde MAE ≈ 0.107, RMSE ≈ 0.136 ve R² ≈ 0.550 bulunmuştur. Eğitim ve test performanslarının birbirine yakın olması, modelin overfitting (aşırı uyum) göstermediğini ve yeni veriye genelleyebileceğini gösterir. 10 yıllık tahminler, 2025’te 1.022°C’den başlayıp 2034’te yaklaşık 1.275°C’ye ulaşarak sıcaklık artış eğilimini sürdürmektedir.
+
+Karşılaştırma ve Sonuç: ARIMA modeli, lineer trendleri ve geçmiş otomatik ilişkiyi yakalayarak stabil tahminler üretir. NAR modeli ise non‑linear yapıları da öğrenebildiği için dalgalanmaları daha iyi yakalayabilir. Her iki model de küresel sıcaklık anomalileri için anlamlı tahminler üretmiştir ve geleceğe yönelik olarak artan bir sıcaklık eğilimi göstermektedir. ARIMA modelinin güçlü istatistiksel temelleri onaylanmışken, NAR modeli performans metrikleriyle doğrulanmıştır. Bu sonuçlar, hem klasik istatistik hem de makine öğrenmesi yaklaşımlarının birlikte kullanılmasının faydalı olduğunu göstermektedir.
